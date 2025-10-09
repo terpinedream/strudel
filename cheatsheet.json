@@ -1,0 +1,92 @@
+// Import samples from repo
+samples("github:username/directory")
+
+// Set cycles per second (default 0.5) 
+// setCps(bpm/bpc)
+setCps(x/y) | setCps(x)
+
+// Load sample where x is the name of sample  
+s("x")
+
+// Pitches to match tempo 
+.fit()
+
+// Scrub through sample 
+.scrub()
+
+// Random segment => x amount of segments 
+.irand(x)
+
+// Divide sample => x amount of divisions 
+.div(x)
+
+// Divide pattern by cycle => x amount of divisions 
+// ?? Still figuring out difference between .div() and this 
+.seg(x)
+
+// Global param for shared effects where x is index number
+.orbit(x)
+
+// Audio Visualizer 
+._scope()
+
+// Note Visualizer 
+._punchcard()
+
+// Sets color for item in visualizer where x is a color => ("red"), ("blue")
+.color("x")
+
+// Loops pattern inside offset for y amount of cycles where x is offset
+.rib(x,y)
+
+// Shorthand for 10% => Occurs 10% of time 
+.almostNever()
+
+// Repeat x amount of times => | can be used to switch between different ints => (2 | 4)
+ply(x | y)
+
+// Constant for arrays where x is the specified name  
+const x = []
+// Call const where x/y are index numbers and const is the name of array  
+pick(const,
+"x y")
+
+// Index call where x is the index number 
+.n(x)
+
+// Attack => x = amount 
+.att(x)
+
+// Reverb / Reverb Size => x = amount 
+.room(x) => .roomSize(x)
+
+// Offsets sample x amount in seconds in scrub 
+.add(x)
+
+// Plays note where x is the key => ("c#1") 
+.note("x")
+
+// Lowpass Filter => x = amount 
+.lpf(x)
+
+// Adds slider for effects, etc. where x,y,z are scope points 
+slider(x,y,z)
+
+// Pass to all items in project 
+all(x => y)
+
+// Mini-Notation
+// 
+// x@y => weight or play for y amount
+// x*y => speed up y amount  
+// -/~ => rest
+// [x y] => wrapper for subsequence 
+// [x y[z]] => wrapper for sub-subsequence 
+// <("x y")> => alternate sequences 
+// x, y => plays parrallel
+// x/y => slows x y amount 
+// x!y => repeat x y times at tempo 
+// x? => 50% chance of removal from pattern 
+// x | y => x or y 
+// 
+// 

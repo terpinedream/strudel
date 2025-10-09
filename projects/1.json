@@ -1,0 +1,22 @@
+setGainCurve(x => Math.pow(x, 2))
+samples('github:switchangel/breaks')
+samples('github:switchangel/pad')
+samples('github:tidalcycles/uzu-drumkit')
+samples('github:tidalcycles/dirt-samples')
+
+setCps(170/60/4)
+
+
+$: s("breaks/2").n(5)
+  .fit()
+  .orbit(2)
+  .scrub(irand(16).div(16).seg(4)
+  .rib("<6 5 12 5>",1).almostNever(ply("2 | 3")))
+  ._scope()
+
+
+$: s("swpad").scrub("<[.8!4] [.2/4] [.26/3] [.2!2 .18/2]>".seg(8)).n(1)
+  .gain(1.4)
+  .decay(.2)
+  .crush(6)
+  ._scope()._punchcard()
