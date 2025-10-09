@@ -48,8 +48,7 @@ ply(x | y)
 // Constant for arrays where x is the specified name  
 const x = []
 // Call const where x/y are index numbers and const is the name of array  
-pick(const,
-"x y")
+pick(const, "x y")
 
 // Index call where x is the index number 
 .n(x)
