@@ -2,8 +2,8 @@
 samples("github:username/directory")
 
 // Set cycles per second (default 0.5) 
-// setCps(bpm/bpc)
-setCps(x/y) | setCps(x)
+// setCps(bpm/seconds/measures)
+setCps(x/y/z) | setCps(x)
 
 // Load sample where x is the name of sample  
 s("x")
@@ -24,8 +24,26 @@ s("x")
 // ?? Still figuring out difference between .div() and this 
 .seg(x)
 
+// Anchors chords to an octave where x is a note+octave => .anchor("c5")
+.anchor(x)
 // Global param for shared effects where x is index number
 .orbit(x)
+
+// Visualizer for piano notes
+.pianoroll()
+
+// Sidechains audio where x is the index of an orbit
+.duck(x)
+
+// Slider for effects where n is an effect, x is initial value, y is min, and z is max
+// Optional fourth param to specify step
+.n(slider(x,y,z)
+
+// Plays track early or late respectively where x is the time in seconds
+.early(x) / .late(x)
+
+// Slows track where x is amount of cycles
+.slow(x)
 
 // Audio Visualizer 
 ._scope()
@@ -47,17 +65,12 @@ ply(x | y)
 
 // Constant for arrays where x is the specified name  
 const x = []
+
 // Call const where x/y are index numbers and const is the name of array  
 pick(const, "x y")
 
-// Index call where x is the index number 
+// Index call for octave or sample bank where x is the index number 
 .n(x)
-
-// Attack => x = amount 
-.att(x)
-
-// Reverb / Reverb Size => x = amount 
-.room(x) => .roomSize(x)
 
 // Offsets sample x amount in seconds in scrub 
 .add(x)
@@ -65,8 +78,11 @@ pick(const, "x y")
 // Plays note where x is the key => ("c#1") 
 .note("x")
 
-// Lowpass Filter => x = amount 
-.lpf(x)
+// Specifies voicing for chords => Chords will not play without 
+.voicing()
+
+// Clips audio where x is specified time =>> Similar to legato 
+.clip(x)
 
 // Adds slider for effects, etc. where x,y,z are scope points 
 slider(x,y,z)
@@ -89,3 +105,18 @@ all(x => y)
 // x | y => x or y 
 // 
 // 
+
+// Effects 
+//
+// .room(x)=>reverb
+// .roomSize(x)=>reverb 'size'
+// .gain(x)=>gain/volume
+// .postgain(x)=>gain after other effects
+// .dist(x)=>distortion
+// .crush(x)=>bitcrush
+// .lpf(x)=>lowpass filter
+// .hpf(x)=>highpass filter
+// .att(x)=>attack
+// .dec(x)=>decay
+// .phaser(x)=>phaser
+//
